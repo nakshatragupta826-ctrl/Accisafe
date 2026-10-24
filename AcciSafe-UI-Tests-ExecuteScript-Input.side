@@ -1,0 +1,1842 @@
+{
+  "id": "4a1655ee-cd23-4ef0-b27f-c9e6f91227e5",
+  "version": "2.0",
+  "name": "AcciSafe-UI-Tests-ExecuteScript-Input",
+  "url": "http://localhost:5173",
+  "tests": [
+    {
+      "id": "4c2ea29a-d9cb-430c-88cb-02983c3f1d13",
+      "name": "UI-00 Create QA account (run ONCE, only if qa.rider@example.com does not exist yet)",
+      "commands": [
+        {
+          "id": "fabc70ac-c453-479e-905f-bd7b711dca90",
+          "comment": "Start from the login page",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c8e239e9-6f14-4264-b181-aac63df3a2f5",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1280x800",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ec9e9db7-35d3-43fc-8d92-c39f4b7cb7a7",
+          "comment": "Let the app finish checking the saved session",
+          "command": "pause",
+          "target": "2500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "14468991-e8e2-4a61-8103-03c66eb23f56",
+          "comment": "Is someone already signed in?",
+          "command": "executeScript",
+          "target": "return document.querySelector('.logout-button') !== null",
+          "targets": [],
+          "value": "loggedIn"
+        },
+        {
+          "id": "3e6be506-876b-4b8b-89f4-19f6c463cfc5",
+          "comment": "",
+          "command": "if",
+          "target": "${loggedIn}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "04c93abe-c366-4845-915d-04e556e0703a",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "eae3c3c2-cdaf-4075-8a04-91fdcb97ea14",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1d1e6187-03aa-48ec-b4f7-d549064259e1",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=input[type='email']",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "e4471d60-5500-4771-aab5-393bc65bb42b",
+          "comment": "Switch to Create Account",
+          "command": "click",
+          "target": "css=.auth-switch button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "81dba524-2806-42dc-aa23-2ca0ef4e505f",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='email']\");if (!el) throw new Error('Input not found: ' + \"input[type='email']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"qa.rider@example.com\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "aa0c639e-1f1c-440e-8266-d5bb8b8070eb",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='password']\");if (!el) throw new Error('Input not found: ' + \"input[type='password']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"Test@12345\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "824248d7-39eb-46e2-8b4d-e84284bed20d",
+          "comment": "",
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2b12c25f-aec1-44b1-af2e-6c2e5bce7b9a",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=button.nav-item",
+          "targets": [],
+          "value": "15000"
+        },
+        {
+          "id": "29cc2dcb-4ddf-4548-8d8b-3a40e9941ca4",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "9cf00de2-64f4-4e4f-b93a-e81267fdfbc3",
+      "name": "UI-01 Valid login",
+      "commands": [
+        {
+          "id": "17be8ecc-0fbd-49da-9e3d-c5563a0733e2",
+          "comment": "Start from the login page",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "0272e387-752f-40b0-b8a3-729ae292a608",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1280x800",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7d415e28-029e-4b26-a4fe-4dac1d0f20d7",
+          "comment": "Let the app finish checking the saved session",
+          "command": "pause",
+          "target": "2500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "fe856514-0d16-492b-a203-c76846ee1e1c",
+          "comment": "Is someone already signed in?",
+          "command": "executeScript",
+          "target": "return document.querySelector('.logout-button') !== null",
+          "targets": [],
+          "value": "loggedIn"
+        },
+        {
+          "id": "aa106f63-08c9-4156-ab17-e0dbd704654b",
+          "comment": "",
+          "command": "if",
+          "target": "${loggedIn}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "5e2845c7-4300-4662-85ab-e0afb4d94929",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4e9cf164-edd8-45f0-9a3d-4ac0ddbe4bdb",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b291735e-96d7-4b49-9b65-283f87cf21dd",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=input[type='email']",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "c13a7ffb-ab11-4ca2-8535-b78fc9d95d8c",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='email']\");if (!el) throw new Error('Input not found: ' + \"input[type='email']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"qa.rider@example.com\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7d75d642-b8d5-446e-9987-ac0b574fbda6",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='password']\");if (!el) throw new Error('Input not found: ' + \"input[type='password']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"Test@12345\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "5bf00a60-8b3e-4e5c-bea9-9f5e0cdb807d",
+          "comment": "",
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d3fbcd1a-619d-4521-b695-b4f6224a00f2",
+          "comment": "Dashboard menu appears = logged in",
+          "command": "waitForElementVisible",
+          "target": "css=button.nav-item",
+          "targets": [],
+          "value": "15000"
+        },
+        {
+          "id": "5a1166c4-c420-4437-877c-59277484f9c1",
+          "comment": "",
+          "command": "assertElementPresent",
+          "target": "xpath=//*[contains(text(),'Emergency Contacts')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cf0a77c1-eb69-4098-b23b-2f7568be7888",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "1054864f-052b-4b3d-a8b0-b63a749e2eb6",
+      "name": "UI-02 Wrong password shows error",
+      "commands": [
+        {
+          "id": "2d4a1807-b4b6-4b20-ba28-380d9f046334",
+          "comment": "Start from the login page",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "aa31c303-091e-4b3e-97bb-5bcafebccd71",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1280x800",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e64bc29e-f444-43ae-9129-d310a962ac7a",
+          "comment": "Let the app finish checking the saved session",
+          "command": "pause",
+          "target": "2500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "48166c15-6834-477f-903e-f65143a91372",
+          "comment": "Is someone already signed in?",
+          "command": "executeScript",
+          "target": "return document.querySelector('.logout-button') !== null",
+          "targets": [],
+          "value": "loggedIn"
+        },
+        {
+          "id": "903e6af4-85cf-41a5-96b4-aa8740ee0cb6",
+          "comment": "",
+          "command": "if",
+          "target": "${loggedIn}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "8c761011-9143-48ef-97ee-4857f9348375",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "195d27e2-7323-4838-a4bb-7ff242c94461",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "83cb2dba-0c54-4d0a-959b-856eec800f06",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=input[type='email']",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "80dafb12-1ef2-4940-bb83-f28b8682effd",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='email']\");if (!el) throw new Error('Input not found: ' + \"input[type='email']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"qa.rider@example.com\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e93115a3-c812-401d-bb06-e86ee0f99618",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='password']\");if (!el) throw new Error('Input not found: ' + \"input[type='password']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"WrongPass999\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b460cb43-0170-40e7-930e-a29bd1b69e0a",
+          "comment": "",
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4454db27-34c8-4e1d-9c36-3fcf16345c1a",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=.auth-error",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "b8cee12e-f2c7-4a56-bf3b-eaebdd1d0521",
+          "comment": "",
+          "command": "assertText",
+          "target": "css=.auth-error",
+          "targets": [],
+          "value": "Invalid email or password."
+        }
+      ]
+    },
+    {
+      "id": "1bf64957-e9d7-40bf-9c02-e6d8df15ce34",
+      "name": "UI-03 Register with an existing email is rejected",
+      "commands": [
+        {
+          "id": "bfdb4326-d8c9-42a5-8a52-903c3783ce24",
+          "comment": "Start from the login page",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "42dccbdb-a0b9-411c-abe5-4247fe7ac39a",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1280x800",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a98e28fc-b352-4a8b-9ba0-5c9c60eccc54",
+          "comment": "Let the app finish checking the saved session",
+          "command": "pause",
+          "target": "2500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "65efd731-9a56-4aba-bfd8-5d2848fb4de9",
+          "comment": "Is someone already signed in?",
+          "command": "executeScript",
+          "target": "return document.querySelector('.logout-button') !== null",
+          "targets": [],
+          "value": "loggedIn"
+        },
+        {
+          "id": "899d2592-3c32-4027-98b6-51639963bcf9",
+          "comment": "",
+          "command": "if",
+          "target": "${loggedIn}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a69140d1-8623-4f95-b5e2-4794052cdf4e",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4ae92a34-eaa3-4692-9e1f-3445a6f8ba42",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4f95c0ce-119d-4a6a-8f67-42e3665423e4",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=input[type='email']",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "38d64eac-3bb3-4371-b693-21d3c5097ca3",
+          "comment": "",
+          "command": "click",
+          "target": "css=.auth-switch button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1aabde34-565d-48be-a641-c1e22e9e7791",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='email']\");if (!el) throw new Error('Input not found: ' + \"input[type='email']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"qa.rider@example.com\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4d50927c-e789-4462-9078-d9c813132bbc",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='password']\");if (!el) throw new Error('Input not found: ' + \"input[type='password']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"Test@12345\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6ac69332-7d75-436f-a39b-57d9524e35a3",
+          "comment": "",
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a0a3036a-1ac2-4f68-b91a-8c2e5e41c56a",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=.auth-error",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "69e79f13-a8d9-47e9-a7b2-44ee677538b2",
+          "comment": "",
+          "command": "assertText",
+          "target": "css=.auth-error",
+          "targets": [],
+          "value": "This email is already registered."
+        }
+      ]
+    },
+    {
+      "id": "dd0342f8-ca82-4698-ac9e-4174a12bbbd2",
+      "name": "UI-04 Weak password rejected",
+      "commands": [
+        {
+          "id": "613811d3-1aba-4e33-a256-f084b215723f",
+          "comment": "Start from the login page",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9e4c7d53-b256-4ae0-af56-19bfeb52a9aa",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1280x800",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "67611f0b-bff2-4a07-b982-5f12a696a8e0",
+          "comment": "Let the app finish checking the saved session",
+          "command": "pause",
+          "target": "2500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "fb258d6e-5b6a-4a9b-af90-12e062523cda",
+          "comment": "Is someone already signed in?",
+          "command": "executeScript",
+          "target": "return document.querySelector('.logout-button') !== null",
+          "targets": [],
+          "value": "loggedIn"
+        },
+        {
+          "id": "7c0045f1-a577-4f4c-bf0b-b921de9f646c",
+          "comment": "",
+          "command": "if",
+          "target": "${loggedIn}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e87d8a78-22d4-40b2-9ad1-51df564b918f",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f4214554-13f9-482a-a8d4-78a365687b66",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "96639748-bf8f-4e69-bdc2-338ad80f9c13",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=input[type='email']",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "6dcc8542-b2c2-4d5b-a7e8-dac4022c7d00",
+          "comment": "",
+          "command": "executeScript",
+          "target": "return Date.now()",
+          "targets": [],
+          "value": "ts"
+        },
+        {
+          "id": "d0c3d702-a944-4b45-8ffb-6d61cceb7d5b",
+          "comment": "",
+          "command": "click",
+          "target": "css=.auth-switch button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f2b65714-0669-4d7d-b3cd-5bcb48ee2329",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='email']\");if (!el) throw new Error('Input not found: ' + \"input[type='email']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"qa.weak${ts}@example.com\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "75c3959f-23d5-4bd6-aa0e-c723c54b1a4d",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='password']\");if (!el) throw new Error('Input not found: ' + \"input[type='password']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"123\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2c35a60b-3aa1-42ca-8cd5-88b090926c56",
+          "comment": "",
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "17955246-f643-45ce-adcf-5fec930b4295",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=.auth-error",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "6ac3a09b-caf2-4895-9b70-5d31cd014470",
+          "comment": "",
+          "command": "assertText",
+          "target": "css=.auth-error",
+          "targets": [],
+          "value": "Password must be at least 6 characters."
+        }
+      ]
+    },
+    {
+      "id": "9f53d59e-1d1b-4869-aa4f-a181d28bac99",
+      "name": "UI-05 Empty form cannot log in",
+      "commands": [
+        {
+          "id": "fd53d295-bf75-4193-b177-e88f1f962de7",
+          "comment": "Start from the login page",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7dfa9c46-6527-4c40-90d6-1d70b72b1636",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1280x800",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "57732b53-20d2-440f-b418-31ef36f9bccc",
+          "comment": "Let the app finish checking the saved session",
+          "command": "pause",
+          "target": "2500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "046c9dbb-883f-480a-8c8f-75f426ad7890",
+          "comment": "Is someone already signed in?",
+          "command": "executeScript",
+          "target": "return document.querySelector('.logout-button') !== null",
+          "targets": [],
+          "value": "loggedIn"
+        },
+        {
+          "id": "68cbddcb-8c66-47f8-b31e-0b27e6bfa9db",
+          "comment": "",
+          "command": "if",
+          "target": "${loggedIn}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c53700ae-5f47-40e4-8bb8-7463a9f129e5",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d06510d3-204c-4d20-b6e8-13a79cb3d32f",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4c46d6a5-1a79-4c18-af2b-4345bdd5964a",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=input[type='email']",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "6d7721f6-e503-4582-881f-389c6cd404de",
+          "comment": "",
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "959af26d-36da-481a-a9f5-f56945128930",
+          "comment": "",
+          "command": "pause",
+          "target": "1000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "dc651347-658d-4f67-b18e-5a62c89d6d00",
+          "comment": "",
+          "command": "assertElementPresent",
+          "target": "css=input[type='email']",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ccee772f-5d14-42c2-a94e-254cd6b44698",
+          "comment": "",
+          "command": "assertElementNotPresent",
+          "target": "css=button.nav-item",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "9c15f002-d54c-4429-85f6-724aeb9d5c08",
+      "name": "UI-06 Navigation opens every page",
+      "commands": [
+        {
+          "id": "300a5b96-4b63-45c3-bebe-9feb8b3b9235",
+          "comment": "Start from the login page",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d88513a5-fdeb-49c0-aae9-e804c9dcff56",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1280x800",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f410e935-9906-445c-b78f-fc49c5a0e844",
+          "comment": "Let the app finish checking the saved session",
+          "command": "pause",
+          "target": "2500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f5df1258-768d-4ba1-969d-20ad6b7fe89b",
+          "comment": "Is someone already signed in?",
+          "command": "executeScript",
+          "target": "return document.querySelector('.logout-button') !== null",
+          "targets": [],
+          "value": "loggedIn"
+        },
+        {
+          "id": "3fa8c17a-ba36-44ea-b7d8-f6f6fccff2c1",
+          "comment": "",
+          "command": "if",
+          "target": "${loggedIn}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b4871a67-4d82-4053-81f7-61a111ae18c9",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d68517de-2bdc-4f17-8dc7-9155c642ebf1",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e0596a65-834c-4733-b1e2-0abcf751bd7b",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=input[type='email']",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "3fe89f64-5481-4f1a-8ff8-67609b1e0282",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='email']\");if (!el) throw new Error('Input not found: ' + \"input[type='email']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"qa.rider@example.com\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7f536c0a-6efc-4817-abad-d682fbaa4d35",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='password']\");if (!el) throw new Error('Input not found: ' + \"input[type='password']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"Test@12345\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "281895f3-a7d6-4318-a0db-9d68d521eab7",
+          "comment": "",
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a39b2334-02d1-44db-89a8-e62d880c0330",
+          "comment": "Dashboard menu appears = logged in",
+          "command": "waitForElementVisible",
+          "target": "css=button.nav-item",
+          "targets": [],
+          "value": "15000"
+        },
+        {
+          "id": "00f13e04-0826-457c-88b4-8b9690a3a5f9",
+          "comment": "",
+          "command": "click",
+          "target": "xpath=//button[contains(@class,'nav-item')][contains(.,'Live Safety')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9060c209-bf05-492d-9330-0c137798e1d3",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "xpath=//*[contains(text(),'LIVE MONITORING')]",
+          "targets": [],
+          "value": "8000"
+        },
+        {
+          "id": "c62bc6a3-2deb-4bbe-8614-df9bae18793b",
+          "comment": "",
+          "command": "click",
+          "target": "xpath=//button[contains(@class,'nav-item')][contains(.,'Accident History')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "363e6b44-f536-4375-adf4-535988cb0e2a",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "xpath=//*[contains(text(),'Recorded Safety Events')]",
+          "targets": [],
+          "value": "8000"
+        },
+        {
+          "id": "d4f5c4a8-3619-40f3-be91-2ad62a3cd37d",
+          "comment": "",
+          "command": "click",
+          "target": "xpath=//button[contains(@class,'nav-item')][contains(.,'Emergency Contacts')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "06bd9dbc-a09c-418b-8bcb-17f6a17e7aff",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "xpath=//*[contains(text(),'CONTACT MANAGEMENT')]",
+          "targets": [],
+          "value": "8000"
+        },
+        {
+          "id": "065df75f-eb85-481d-a55c-0559f2a6ba1d",
+          "comment": "",
+          "command": "click",
+          "target": "xpath=//button[contains(@class,'nav-item')][contains(.,'Hospitals')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4881aeb3-4d97-40eb-a5bf-50a2c3fb67fd",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "xpath=//*[contains(text(),'Nearby Hospitals')]",
+          "targets": [],
+          "value": "8000"
+        },
+        {
+          "id": "b1cd5996-dfe2-4ddf-a0fc-14c551243efd",
+          "comment": "",
+          "command": "click",
+          "target": "xpath=//button[contains(@class,'nav-item')][contains(.,'Settings')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e5de7229-4b76-4525-b0e5-ab9ffa5b12ab",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "xpath=//*[contains(text(),'Current Safety Thresholds')]",
+          "targets": [],
+          "value": "8000"
+        },
+        {
+          "id": "ba6047bd-b436-43eb-815b-81afacc5119d",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "750d56e1-3e63-44a7-91a8-8475ab7fbbef",
+      "name": "UI-07 Add an emergency contact",
+      "commands": [
+        {
+          "id": "3ef2e0e7-2e0e-4883-821f-a0dfcce2b81c",
+          "comment": "Start from the login page",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1ea3b3d4-fd40-4764-8d08-172e832864c7",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1280x800",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "789d61b4-c947-4386-866c-a4794159ba5f",
+          "comment": "Let the app finish checking the saved session",
+          "command": "pause",
+          "target": "2500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a09575dd-3250-4482-afc6-93f1c3309007",
+          "comment": "Is someone already signed in?",
+          "command": "executeScript",
+          "target": "return document.querySelector('.logout-button') !== null",
+          "targets": [],
+          "value": "loggedIn"
+        },
+        {
+          "id": "53039a17-c3b5-4ad6-bfc4-dc4c696817f5",
+          "comment": "",
+          "command": "if",
+          "target": "${loggedIn}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "06f66682-79c4-4450-9604-241919f813cb",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "11ed266a-ad96-4361-a78c-6aa138322116",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "745b94a2-225d-464c-ab6f-800fbf9f9630",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=input[type='email']",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "f3ccbfce-1e7d-477b-91b4-ff80f7288bef",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='email']\");if (!el) throw new Error('Input not found: ' + \"input[type='email']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"qa.rider@example.com\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "22d1686d-8383-4630-a127-bd6896e9b512",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='password']\");if (!el) throw new Error('Input not found: ' + \"input[type='password']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"Test@12345\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1542f977-9e64-4e2a-96a6-b6495f1bf169",
+          "comment": "",
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7cad68da-8206-4490-8676-da615656f584",
+          "comment": "Dashboard menu appears = logged in",
+          "command": "waitForElementVisible",
+          "target": "css=button.nav-item",
+          "targets": [],
+          "value": "15000"
+        },
+        {
+          "id": "d43f9210-7ee6-43d5-8c4d-a86c58ba7301",
+          "comment": "",
+          "command": "click",
+          "target": "xpath=//button[contains(@class,'nav-item')][contains(.,'Emergency Contacts')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "8b7d12f1-3d3b-4a54-a721-67a87f0a5a36",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "xpath=//*[contains(text(),'CONTACT MANAGEMENT')]",
+          "targets": [],
+          "value": "8000"
+        },
+        {
+          "id": "3b7f744e-44fe-48be-ada3-af9755ea7986",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.add-contact-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "931187cc-fce0-47a4-9664-f8e9e390f4e9",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[placeholder='e.g. Rahul Kumar']\");if (!el) throw new Error('Input not found: ' + \"input[placeholder='e.g. Rahul Kumar']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"QA Contact\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b092ad55-bbe3-4b7c-a34e-614abffb3bff",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[placeholder='+91 9876543210']\");if (!el) throw new Error('Input not found: ' + \"input[placeholder='+91 9876543210']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"+91 9000000001\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "19623734-56d4-44ac-aa43-3e97acb5cb59",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[placeholder='e.g. Parent']\");if (!el) throw new Error('Input not found: ' + \"input[placeholder='e.g. Parent']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"Friend\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7167e08a-b22a-4c1b-a0ec-b5a52a4314ab",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.save-contact-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "57b4e391-e56c-46f2-a30d-02fce0a6fa9d",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "xpath=//div[contains(@class,'contact-row')][contains(.,'QA Contact')]",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "00612fbf-367d-4ff2-8136-385663ed2258",
+          "comment": "",
+          "command": "assertElementPresent",
+          "target": "xpath=//div[contains(@class,'contact-row')][contains(.,'QA Contact')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "593ecaf4-23cf-4b8f-aeab-00fcd6535001",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "1bff5fc3-8b24-49c8-abba-bfae21049de3",
+      "name": "UI-08 Invalid contact (phone too short) is rejected",
+      "commands": [
+        {
+          "id": "533d962e-f026-44cf-bd33-6613356d1f67",
+          "comment": "Start from the login page",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "11cebe4c-4a2c-4277-96e1-afcfd5cd447e",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1280x800",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "023d1acc-ad55-47b6-bd18-89a213a4fe47",
+          "comment": "Let the app finish checking the saved session",
+          "command": "pause",
+          "target": "2500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f8605db6-8dc0-4618-a683-11bd2f12bbc6",
+          "comment": "Is someone already signed in?",
+          "command": "executeScript",
+          "target": "return document.querySelector('.logout-button') !== null",
+          "targets": [],
+          "value": "loggedIn"
+        },
+        {
+          "id": "04f1cbb4-f171-46b2-8cfe-710ab42c22ee",
+          "comment": "",
+          "command": "if",
+          "target": "${loggedIn}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2ce8f0f9-fff1-4505-abf6-34b97b8da18c",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2308fbf3-dec2-4cc0-b5cb-888e6c06a7fd",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3c886f85-1dd2-43b8-9beb-9c1f0e300d3f",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=input[type='email']",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "84ccb1a0-c680-4f61-b027-ee8d7145e8bd",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='email']\");if (!el) throw new Error('Input not found: ' + \"input[type='email']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"qa.rider@example.com\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "713a9283-bc11-43e2-9d7a-219e9cab05d9",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='password']\");if (!el) throw new Error('Input not found: ' + \"input[type='password']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"Test@12345\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2ffe5665-29f4-477b-94fb-650048c29c3c",
+          "comment": "",
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "33b2c3c0-9b5c-48a1-a863-dc64badbba15",
+          "comment": "Dashboard menu appears = logged in",
+          "command": "waitForElementVisible",
+          "target": "css=button.nav-item",
+          "targets": [],
+          "value": "15000"
+        },
+        {
+          "id": "8ad15cbd-2a4b-44d1-9164-d5a510b140d9",
+          "comment": "",
+          "command": "click",
+          "target": "xpath=//button[contains(@class,'nav-item')][contains(.,'Emergency Contacts')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "68900809-af9b-4d1f-9dda-84b0ea7977a2",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "xpath=//*[contains(text(),'CONTACT MANAGEMENT')]",
+          "targets": [],
+          "value": "8000"
+        },
+        {
+          "id": "57820bdf-9053-4550-a03e-4f89bd6e4fe3",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.add-contact-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e986a7a3-3f25-43c7-9689-9cd7c72cbe11",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[placeholder='e.g. Rahul Kumar']\");if (!el) throw new Error('Input not found: ' + \"input[placeholder='e.g. Rahul Kumar']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"QA Bad\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6d43e67b-3e31-4c84-8570-c61ed3a9709a",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[placeholder='+91 9876543210']\");if (!el) throw new Error('Input not found: ' + \"input[placeholder='+91 9876543210']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"123\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "356e1cd2-82da-439e-ad3c-e8594b21fba2",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[placeholder='e.g. Parent']\");if (!el) throw new Error('Input not found: ' + \"input[placeholder='e.g. Parent']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"Friend\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d54eaa71-2f28-42e3-95b7-693ba1ee2235",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.save-contact-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "06e6f038-c7fa-49de-be2c-ffc8f917ace3",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=.contact-error",
+          "targets": [],
+          "value": "8000"
+        },
+        {
+          "id": "019214f6-628a-4663-8228-d9b1b136c4c1",
+          "comment": "",
+          "command": "assertElementPresent",
+          "target": "css=.contact-error",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9de41efe-1336-4e0d-9fdf-662e258a7ca1",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "968acb27-7c34-4fd0-92d5-69163172d51e",
+      "name": "UI-09 Delete the QA contact",
+      "commands": [
+        {
+          "id": "ab9c53b2-3d86-43db-986d-7f1d774b01df",
+          "comment": "Start from the login page",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "77dec87c-fc55-4e8b-b1d4-5e3b41fda75e",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1280x800",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "44f1e6eb-601a-4e77-b7ae-ae276d2fe95d",
+          "comment": "Let the app finish checking the saved session",
+          "command": "pause",
+          "target": "2500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3f2883f4-6afb-4682-9e9f-3576e97319c7",
+          "comment": "Is someone already signed in?",
+          "command": "executeScript",
+          "target": "return document.querySelector('.logout-button') !== null",
+          "targets": [],
+          "value": "loggedIn"
+        },
+        {
+          "id": "e58ac772-95e6-4738-8472-168fb3f75b9b",
+          "comment": "",
+          "command": "if",
+          "target": "${loggedIn}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f6da6849-c5f3-4080-af91-97d71d5d1805",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b05cbe42-7ca6-4274-a85f-a7995fb08730",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "500047c9-5360-41c5-ac83-b4fe00ebf437",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=input[type='email']",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "a38602e6-4f60-4ebc-a294-4b937330f8b7",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='email']\");if (!el) throw new Error('Input not found: ' + \"input[type='email']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"qa.rider@example.com\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "fe628f5e-a085-4436-b9dc-852a63324443",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='password']\");if (!el) throw new Error('Input not found: ' + \"input[type='password']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"Test@12345\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9854b2d2-30c4-43f3-9b6d-e08a882112f4",
+          "comment": "",
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "71367dd1-dfba-409f-bea8-31b8b4a9709a",
+          "comment": "Dashboard menu appears = logged in",
+          "command": "waitForElementVisible",
+          "target": "css=button.nav-item",
+          "targets": [],
+          "value": "15000"
+        },
+        {
+          "id": "7977aa9c-c885-41bf-9a45-2e4c041c2fd5",
+          "comment": "",
+          "command": "click",
+          "target": "xpath=//button[contains(@class,'nav-item')][contains(.,'Emergency Contacts')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1b90612c-3fb0-48a9-8a8c-33a871b5e3da",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "xpath=//*[contains(text(),'CONTACT MANAGEMENT')]",
+          "targets": [],
+          "value": "8000"
+        },
+        {
+          "id": "a57653bd-bbeb-4fd3-926c-74bd61a20077",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "xpath=//div[contains(@class,'contact-row')][contains(.,'QA Contact')]",
+          "targets": [],
+          "value": "8000"
+        },
+        {
+          "id": "87623e51-c33f-42f9-987d-9a5aead21862",
+          "comment": "Delete asks 'Delete this emergency contact?'",
+          "command": "chooseOkOnNextConfirmation",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "479c088d-4b51-4ece-af7c-677794043f84",
+          "comment": "",
+          "command": "click",
+          "target": "xpath=//div[contains(@class,'contact-row')][contains(.,'QA Contact')]//button[normalize-space()='Delete']",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "996c2fe6-390a-47f2-96e6-9cfb0e62472f",
+          "comment": "",
+          "command": "assertConfirmation",
+          "target": "Delete this emergency contact?",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "8d84f651-2b21-4462-aa6a-9ec365ee9ea0",
+          "comment": "",
+          "command": "waitForElementNotPresent",
+          "target": "xpath=//div[contains(@class,'contact-row')][contains(.,'QA Contact')]",
+          "targets": [],
+          "value": "8000"
+        },
+        {
+          "id": "7cb4e638-a010-4e19-b3f1-56ff394b9e37",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "ac19302f-eb17-41be-bd93-84e8dc4fc079",
+      "name": "UI-10 Settings page shows thresholds (read only)",
+      "commands": [
+        {
+          "id": "d81f6871-35ec-40f4-b959-19e5c8f7bec4",
+          "comment": "Start from the login page",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3a89ffc1-2868-4f57-8ab9-71dede5aaf35",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1280x800",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "dfa04941-636a-44d3-9561-c756812ba1cf",
+          "comment": "Let the app finish checking the saved session",
+          "command": "pause",
+          "target": "2500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "18b612c7-fa02-483d-aa59-14346860c5d5",
+          "comment": "Is someone already signed in?",
+          "command": "executeScript",
+          "target": "return document.querySelector('.logout-button') !== null",
+          "targets": [],
+          "value": "loggedIn"
+        },
+        {
+          "id": "9a9b197a-3c54-4d09-b7b5-6255dda9dad0",
+          "comment": "",
+          "command": "if",
+          "target": "${loggedIn}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "5b360103-6b7d-40c6-8b6e-82f6b0bf02c4",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c6f57742-5bd3-4371-af03-a19aacf0cb3a",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "8a17c30d-521d-44a4-b6cf-850cabc82e24",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=input[type='email']",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "6183221e-6f18-4d12-8f91-ed4cb742e027",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='email']\");if (!el) throw new Error('Input not found: ' + \"input[type='email']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"qa.rider@example.com\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "69f89d9b-2e7d-4d4e-93a1-a14bbb6a10c4",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='password']\");if (!el) throw new Error('Input not found: ' + \"input[type='password']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"Test@12345\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "fbbdc242-08ec-4e41-ba0a-5fa3c11edaeb",
+          "comment": "",
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4faf23ee-8819-42d7-a358-386621946c6c",
+          "comment": "Dashboard menu appears = logged in",
+          "command": "waitForElementVisible",
+          "target": "css=button.nav-item",
+          "targets": [],
+          "value": "15000"
+        },
+        {
+          "id": "7161362a-b4da-4e3b-8f69-128d72a2d0b6",
+          "comment": "",
+          "command": "click",
+          "target": "xpath=//button[contains(@class,'nav-item')][contains(.,'Settings')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "79a480df-edc8-499f-b745-59227302ad0c",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "xpath=//*[contains(text(),'Current Safety Thresholds')]",
+          "targets": [],
+          "value": "8000"
+        },
+        {
+          "id": "a1af1f70-25ba-49ab-a176-5f45d2c39729",
+          "comment": "",
+          "command": "assertElementPresent",
+          "target": "xpath=//*[contains(text(),'READ ONLY')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "79667025-082d-4b52-a54e-0bf1ee63b5b9",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "121c7ba0-af40-41b1-b3ea-d15c42d677bf",
+      "name": "UI-11 Sign out returns to login",
+      "commands": [
+        {
+          "id": "25198f4c-e7c3-48fb-8ec9-2ac203ab6197",
+          "comment": "Start from the login page",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "92a3b909-d329-4770-ad71-533f22f8bb3f",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1280x800",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "31814a38-d8aa-4368-9994-a03520168713",
+          "comment": "Let the app finish checking the saved session",
+          "command": "pause",
+          "target": "2500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "28d3e6c0-4996-4177-8b04-3f61a968273b",
+          "comment": "Is someone already signed in?",
+          "command": "executeScript",
+          "target": "return document.querySelector('.logout-button') !== null",
+          "targets": [],
+          "value": "loggedIn"
+        },
+        {
+          "id": "2aea3c89-2b8e-443b-931c-3d906e97a9a4",
+          "comment": "",
+          "command": "if",
+          "target": "${loggedIn}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a7062240-98b1-4654-b2c7-b3fdd3a91169",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9496ea52-b97b-45d1-bf7c-9148f89a1f76",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4f68edc0-6626-44f6-a0c7-d31cd23e295b",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=input[type='email']",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "04fc5dc5-3dfa-4ed8-b4a9-14b9a03987e3",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='email']\");if (!el) throw new Error('Input not found: ' + \"input[type='email']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"qa.rider@example.com\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cbbe4e5f-bd69-4aac-b0c0-e78c3c746454",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='password']\");if (!el) throw new Error('Input not found: ' + \"input[type='password']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"Test@12345\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a5d16de6-348d-41a3-8aa8-bed4ce853e36",
+          "comment": "",
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ec371196-8175-4d8a-9759-61a95baf1630",
+          "comment": "Dashboard menu appears = logged in",
+          "command": "waitForElementVisible",
+          "target": "css=button.nav-item",
+          "targets": [],
+          "value": "15000"
+        },
+        {
+          "id": "935cdac4-4aa0-4eb8-a278-2b238767977e",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e9a84dda-d4fa-4f5b-9e2b-d7cbb3f68e19",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=input[type='email']",
+          "targets": [],
+          "value": "8000"
+        },
+        {
+          "id": "01f8b8c5-1a32-4b04-91ba-405323f94a25",
+          "comment": "",
+          "command": "assertElementNotPresent",
+          "target": "css=button.nav-item",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "4f370002-696b-4004-ba18-54a5a1d0080f",
+      "name": "UI-12 Normal rider does not see Admin Dashboard",
+      "commands": [
+        {
+          "id": "728532c5-09cd-442a-84cb-b2aef2f8dbb2",
+          "comment": "Start from the login page",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "42e6958d-c04e-4a57-9cfe-e63fd03801d8",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1280x800",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2cf02053-7acd-4fa6-bb1a-7c936168747e",
+          "comment": "Let the app finish checking the saved session",
+          "command": "pause",
+          "target": "2500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "61ab4274-2604-435e-ad00-f8bf7d986e78",
+          "comment": "Is someone already signed in?",
+          "command": "executeScript",
+          "target": "return document.querySelector('.logout-button') !== null",
+          "targets": [],
+          "value": "loggedIn"
+        },
+        {
+          "id": "15b2c54e-3be7-4c9c-8ba2-927156a41d23",
+          "comment": "",
+          "command": "if",
+          "target": "${loggedIn}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6d67cafb-7067-4177-b9b0-5cec4a73b6f9",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "019ebc2c-c57b-49e4-9eb2-c7e1b98fbf1b",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "bfaefa69-50dd-4fbd-aec0-68e15b923c52",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "css=input[type='email']",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "9be93f45-a853-44d7-87c2-58591baf1fe3",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='email']\");if (!el) throw new Error('Input not found: ' + \"input[type='email']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"qa.rider@example.com\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "0df44b81-c9da-4e92-8834-8cf50ed7cc21",
+          "comment": "",
+          "command": "executeScript",
+          "target": "const el = document.querySelector(\"input[type='password']\");if (!el) throw new Error('Input not found: ' + \"input[type='password']\");const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, \"Test@12345\");el.dispatchEvent(new Event('input', {bubbles:true}));el.dispatchEvent(new Event('change', {bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7ceb6d01-7e52-4e07-a7d9-14b22cbe3264",
+          "comment": "",
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "32f7eac7-dabe-479c-a5cb-39546c02259c",
+          "comment": "Dashboard menu appears = logged in",
+          "command": "waitForElementVisible",
+          "target": "css=button.nav-item",
+          "targets": [],
+          "value": "15000"
+        },
+        {
+          "id": "fd2371c4-94ef-414d-8d8d-35a9cca836fe",
+          "comment": "Admin check finishes in the background",
+          "command": "pause",
+          "target": "3000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "87ff4919-dfc6-4f11-9bf1-6a55462c362c",
+          "comment": "",
+          "command": "assertElementNotPresent",
+          "target": "xpath=//button[contains(@class,'nav-item')][contains(.,'Admin Dashboard')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "70ff7084-7752-4ee3-99bf-ea5b9b4c52bf",
+          "comment": "",
+          "command": "click",
+          "target": "css=button.logout-button",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "114bee3d-2261-4c9a-bb7e-a67a471cf26f",
+      "name": "Smoke (UI-01 to UI-06)",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 600,
+      "tests": [
+        "9cf00de2-64f4-4e4f-b93a-e81267fdfbc3",
+        "1054864f-052b-4b3d-a8b0-b63a749e2eb6",
+        "1bf64957-e9d7-40bf-9c02-e6d8df15ce34",
+        "dd0342f8-ca82-4698-ac9e-4174a12bbbd2",
+        "9f53d59e-1d1b-4869-aa4f-a181d28bac99",
+        "9c15f002-d54c-4429-85f6-724aeb9d5c08"
+      ]
+    },
+    {
+      "id": "9e3e28b5-9a65-42b8-8181-40ae409a592b",
+      "name": "Regression (UI-07 to UI-12)",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 600,
+      "tests": [
+        "750d56e1-3e63-44a7-91a8-8475ab7fbbef",
+        "1bff5fc3-8b24-49c8-abba-bfae21049de3",
+        "968acb27-7c34-4fd0-92d5-69163172d51e",
+        "ac19302f-eb17-41be-bd93-84e8dc4fc079",
+        "121c7ba0-af40-41b1-b3ea-d15c42d677bf",
+        "4f370002-696b-4004-ba18-54a5a1d0080f"
+      ]
+    }
+  ],
+  "urls": [
+    "http://localhost:5173/"
+  ],
+  "plugins": []
+}

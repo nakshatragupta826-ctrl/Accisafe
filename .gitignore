@@ -1,0 +1,42 @@
+backend/firebase-service-account.json
+*.pyc
+# ================= 
+# Environment & Secrets
+# ================= 
+.env
+firebase-service-account.json
+**/firebase-service-account.json
+
+# ================= 
+# Python / Backend
+# ================= 
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+ENV/
+
+# Databases
+*.db
+*.sqlite3
+
+# Backups & Temporary files
+*.backup
+*.log
+
+# ================= 
+# Frontend (Node / Vite)
+# ================= 
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# ================= 
+# OS / IDE Generated Files
+# ================= 
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

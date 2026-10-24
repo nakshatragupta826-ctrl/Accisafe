@@ -1,0 +1,48 @@
+Label,# Samples,Average,Min,Max,Std. Dev.,Error %,Throughput,Received KB/sec,Sent KB/sec,Avg. Bytes
+Firebase sign-in (get idToken),1,2445,2445,2445,0.00,0.000%,.40900,0.75,0.14,1889.0
+"API-03 GET /sensor/latest, no token",1,78,78,78,0.00,100.000%,12.82051,2.44,2.04,195.0
+"API-04 GET /sensor/latest, garbage token",1,7,7,7,0.00,100.000%,142.85714,27.76,28.74,199.0
+"SEC-01 GET /accidents/, no token",1,7,7,7,0.00,100.000%,142.85714,27.20,22.32,195.0
+"SEC-02 GET /contacts/, no token",1,22,22,22,0.00,100.000%,45.45455,8.66,7.06,195.0
+"SEC-03 POST /sensor/data, no token",1,7,7,7,0.00,100.000%,142.85714,27.20,50.22,195.0
+"SEC-04 GET /admin/test, no token",1,13,13,13,0.00,100.000%,76.92308,14.65,12.02,195.0
+API-01 GET / (public),1,5,5,5,0.00,0.000%,200.00000,42.58,29.30,218.0
+API-02 GET /health (public),1,5,5,5,0.00,0.000%,200.00000,39.06,30.47,200.0
+API-05 GET /sensor/latest (token),1,2713,2713,2713,0.00,0.000%,.36860,0.11,0.40,304.0
+API-06 GET /sensor/config,1,8,8,8,0.00,0.000%,125.00000,44.56,135.62,365.0
+API-07 POST /contacts/ (valid),1,31,31,31,0.00,0.000%,32.25806,8.73,37.87,277.0
+API-08 POST /contacts/ phone too short -> 422,1,11,11,11,0.00,100.000%,90.90909,27.34,104.85,308.0
+API-09 GET /contacts/,1,11,11,11,0.00,0.000%,90.90909,26.81,98.28,302.0
+API-10 PUT /contacts/{id},1,24,24,24,0.00,0.000%,41.66667,11.56,49.76,284.0
+API-11a DELETE /contacts/{id},1,26,26,26,0.00,0.000%,38.46154,7.77,42.44,207.0
+API-11b GET deleted contact -> 404,1,14,14,14,0.00,100.000%,71.42857,13.04,77.29,187.0
+(reset engine),16,10,8,26,4.45,0.000%,.27553,0.06,0.30,216.0
+"API-12 Normal riding -> NORMAL, stage 1",1,16,16,16,0.00,0.000%,62.50000,28.38,79.90,465.0
+"API-13 Pothole (50->42 km/h) -> NORMAL, stage 3",1,9,9,9,0.00,0.000%,111.11111,53.49,142.14,493.0
+"API-14 Bump while parked (speed 5) -> NORMAL, stage 2",1,9,9,9,0.00,0.000%,111.11111,55.45,141.60,511.0
+"API-15 Sudden stop but upright (tilt 20) -> NORMAL, stage 4",1,9,9,9,0.00,0.000%,111.11111,53.82,141.71,496.0
+"BVA-01 acceleration 3.99 -> NORMAL, stage 1",1,9,9,9,0.00,0.000%,111.11111,50.46,142.04,465.0
+BVA-02 acceleration 4.0 -> OBSERVING,1,9,9,9,0.00,0.000%,111.11111,59.35,141.93,547.0
+"BVA-03 speed drop 19 -> NORMAL, stage 3",1,10,10,10,0.00,0.000%,100.00000,48.14,127.73,493.0
+BVA-04 speed drop 20 -> OBSERVING,1,11,11,11,0.00,100.000%,90.90909,49.54,116.12,558.0
+"BVA-05 tilt 44 -> NORMAL, stage 4",1,9,9,9,0.00,0.000%,111.11111,53.82,141.71,496.0
+BVA-06 tilt 45 -> OBSERVING,1,15,15,15,0.00,0.000%,66.66667,35.61,85.03,547.0
+BVA-07 tilt -65 (negative) -> OBSERVING,1,33,33,33,0.00,0.000%,30.30303,16.19,38.68,547.0
+"API-16 Full accident -> OBSERVING, stage 5",1,8,8,8,0.00,0.000%,125.00000,66.77,159.67,547.0
+API-17a accident starts -> OBSERVING,1,23,23,23,0.00,0.000%,43.47826,23.23,55.54,547.0
+API-17b rider moves again (30 km/h) -> NORMAL,1,11593,11593,11593,0.00,0.000%,.08626,0.05,0.11,558.0
+API-18a accident starts -> OBSERVING,1,9,9,9,0.00,0.000%,111.11111,59.35,141.93,547.0
+API-18b still down after 16 s -> ACCIDENT_CONFIRMED,1,2201,2201,2201,0.00,0.000%,.45434,0.26,0.58,580.0
+API-19 Cancel inside the 10 s window -> success true,1,260,260,260,0.00,0.000%,3.84615,0.94,4.25,251.0
+(setup) add active contact for emergency test,1,77,77,77,0.00,0.000%,12.98701,3.51,15.24,277.0
+API-20a accident starts,1,7,7,7,0.00,0.000%,142.85714,76.31,182.48,547.0
+API-20b confirmed,1,397,397,397,0.00,0.000%,2.51889,1.43,3.22,580.0
+API-20c nobody cancelled -> EMERGENCY_ACTIVE (contacts are notified here),1,9,9,9,0.00,0.000%,111.11111,56.21,141.93,518.0
+API-20d accident appears in history,1,71,71,71,0.00,0.000%,14.08451,15.17,15.24,1103.0
+(cleanup) delete test contact,1,22,22,22,0.00,0.000%,45.45455,9.19,50.16,207.0
+API-21a missing fields -> 422,1,12,12,12,0.00,100.000%,83.33333,72.10,93.59,886.0
+API-21b acceleration is text -> 422,1,11,11,11,0.00,100.000%,90.90909,27.88,116.30,314.0
+API-22 GET /admin/test with RIDER token -> 403,1,11,11,11,0.00,100.000%,90.90909,16.78,98.37,189.0
+"API-23 GET /hospitals/nearby (uses internet, may be slow)",1,30003,30003,30003,0.00,100.000%,.03333,0.09,0.00,2785.0
+API-24 hospitals latitude=200 -> 422,1,8,8,8,0.00,100.000%,125.00000,37.23,139.16,305.0
+TOTAL,61,827,5,30003,4071.64,22.951%,.64477,0.26,0.65,418.5
