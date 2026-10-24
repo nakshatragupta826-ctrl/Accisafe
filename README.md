@@ -12,7 +12,7 @@ AcciSafe is an intelligent, software-simulated IoT safety framework designed to 
 Zero-Cost Instant Emergency Dispatch: Sends immediate Telegram alerts featuring live Google Maps location pins to registered emergency contacts.
 False Positive Suppression: Provides a rider-configurable cancellation grace period (15–60s) directly on the web dashboard to prevent accidental dispatches.
 Real-Time Web Dashboard: Built with React, Vite, and Tailwind CSS to display live telemetry, manage emergency contacts, view accident history, and configure threshold parameters.
-Continuous Sensor Simulator: Software-based IoT simulation engine (`continuous_simulator.py`) replicating real-time ESP32 IMU and GPS telemetry stream.
+Continuous Sensor Simulator: Software-based IoT simulation engine (`continuous\_simulator.py`) replicating real-time ESP32 IMU and GPS telemetry stream.
 Role-Based Access Control (RBAC): Firebase Authentication and custom route guards distinguishing riders from admin managers.
 ---
  System Architecture
@@ -20,7 +20,7 @@ The project follows a decoupled 3-tier architecture:
 ```
 +-------------------------------------------------------+
 |                 IoT Simulation Layer                  |
-|          (continuous_simulator.py / ESP32)            |
+|          (continuous\_simulator.py / ESP32)            |
 +---------------------------+---------------------------+
                             | HTTP POST Telemetry
                             v
@@ -28,7 +28,7 @@ The project follows a decoupled 3-tier architecture:
 |                Backend Services Layer                 |
 |             (FastAPI / SQLite / Firebase)             |
 |   - 5-Stage Verification Engine                       |
-|   - Telemetry Ingestion & Boundary Logic              |
+|   - Telemetry Ingestion \& Boundary Logic              |
 +---------------------------+---------------------------+
                             |
          +------------------+------------------+
@@ -68,7 +68,7 @@ Create and activate a virtual environment:
 ```bash
    # Windows
    python -m venv venv
-   .\venv\Scripts\activate
+   .\\venv\\Scripts\\activate
 
    # Linux/macOS
    python3 -m venv venv
@@ -80,9 +80,9 @@ Install dependencies:
    ```
 Configure Environment Variables (`.env`):
 ```env
-   TELEGRAM_BOT_TOKEN="YOUR_TELEGRAM_BOT_TOKEN"
-   TELEGRAM_CHAT_ID="YOUR_TELEGRAM_CHAT_ID"
-   DATABASE_URL="sqlite:///./accisafe.db"
+   TELEGRAM\_BOT\_TOKEN="YOUR\_TELEGRAM\_BOT\_TOKEN"
+   TELEGRAM\_CHAT\_ID="YOUR\_TELEGRAM\_CHAT\_ID"
+   DATABASE\_URL="sqlite:///./accisafe.db"
    ```
 Launch the FastAPI backend server:
 ```bash
@@ -109,16 +109,16 @@ Access Dashboard at: `http://localhost:5173`
 To simulate continuous sensor data streaming and trigger test crash events:
 ```bash
 cd backend/simulator
-python continuous_simulator.py
+python continuous\_simulator.py
 ```
 ---
  Automated Testing
 Apache JMeter (Backend API Suite)
 Open Apache JMeter.
-Load the test plan located at `tests/jmeter/accisafe_api_tests.jmx`.
+Load the test plan located at `tests/jmeter/accisafe\_api\_tests.jmx`.
 Execute the thread group to run authentication security checks, BVA threshold tests, and sensor payload validations.
 Selenium IDE (Frontend UI Suite)
 Launch the Selenium IDE browser extension.
-Open the project file located at `tests/selenium/accisafe_ui_tests.side`.
+Open the project file located at `tests/selenium/accisafe\_ui\_tests.side`.
 Select `Run all tests` to automate login, contact creation/deletion, and routing assertions.
 ---
